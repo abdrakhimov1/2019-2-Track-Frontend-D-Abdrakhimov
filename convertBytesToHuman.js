@@ -37,13 +37,13 @@ export default function convertBytesToHuman(bytes) {
     bytes = bytes / 1024;
 
     if (bytes < 1024) {
-        return bytes.toFixed(2).toString() + " GB"
+        return bytes.toFixed(2).toString() + " GB";
     }
 
     bytes = bytes / 1024;
 
     if (bytes < 1024) {
-        return bytes.toFixed(2).toString() + " TB"
+        return bytes.toFixed(2).toString() + " TB";
     }
 
     return "false NUMB is too big.";
