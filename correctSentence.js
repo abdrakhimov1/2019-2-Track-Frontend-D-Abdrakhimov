@@ -17,7 +17,15 @@ correctSentence("Greetings, friends") == "Greetings, friends."
 correctSentence("Greetings, friends.") == "Greetings, friends."
  */
 
-function correctSentence(text) {
-  // your solution goes here
-  return text;
+
+
+export default function correctSentence(text) {
+
+    text = text[0].toUpperCase() + text.slice(1);
+
+    if (text.slice(-1) !== ".") {
+        text = text + "."
+    }
+
+    return text;
 }
