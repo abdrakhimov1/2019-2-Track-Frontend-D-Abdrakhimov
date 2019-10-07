@@ -4,7 +4,9 @@ template.innerHTML = `
         input {
             border: 0;
             outline: none;
-            width: calc(100% - 2px);
+            width :100%;
+            align-self: flex-start;
+            
         }
         :host {
             display: inline-block;

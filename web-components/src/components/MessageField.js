@@ -6,13 +6,14 @@ template.innerHTML = `
     #field {
         display : flex;
         flex-direction : column; 
-        align-self: flex-start;
+        width: 900px;
         position: relative;
         }
     
     </style>
 
     <div id ="field"></div>
+    
 
     
 `;

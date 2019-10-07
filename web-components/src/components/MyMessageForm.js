@@ -11,18 +11,7 @@ template.innerHTML = `
         flex-direction: column;
         margin: 5px 0;
         }
-    .mymessage span:after {
-        content: "";
-        width: 0; 
-        height: 0;
-        position: absolute; 
-        
-        bottom: calc(0%);
-        border-top: 10px solid transparent;
-        border-left: 15px solid #F8C7E3;
-        border-bottom: 0px solid transparent;
-        z-index: -1;
-        }
+
 
     .mymessage span{
         align-self: flex-start;

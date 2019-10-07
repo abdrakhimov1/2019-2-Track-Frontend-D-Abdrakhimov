@@ -7,53 +7,37 @@ template.innerHTML = `
         form-input {
             width: 100%;
             height: 80px;
-            position: fixed;
+            
             bottom: 0;
         }
-        
-
-
-        #header{
-            height: 160px;
-            background: #CA2C92;
-            border: 2px solid black;
+      
+        .form-input{
+            width : 100%;
             
         }
 
-        #headerfont{
-            
-            
-            line-height : 160px;
-            font-size: 60px;
-            font-weight: lighter;
-            color: #FFF8E7;
-            
-        }
-
-        #form{
-            
-            
+        .message-field-head{
+          width : 400px;
         }
         
         input[type=submit] {
             visibility: collapse;
+        }
+
+        .form{
+          width : 400px;
+          border: 2px solid #CA2C92;
         }
     </style>
     
     
   
     <form>    
-    <message-field-head></message-field-head>
-
-        <div id = "back"></div>
+    
+        <message-field-head></message-field-head>
+        <message-field></message-field>
         <form-input name="message-text" placeholder="Введите сообщеине"></form-input>
-        <mess-form>text</mess-form>
-        <div class = message></div>
-        <message-field>asfasfas</message-field>
-        
-        
-        
-        
+           
     </form>
     
 `;
@@ -127,7 +111,3 @@ class MessageForm extends HTMLElement {
 
 
 customElements.define('message-form', MessageForm);
-
-function f() {
-    return 0;
-}
