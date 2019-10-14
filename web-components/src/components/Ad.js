@@ -32,16 +32,15 @@ template.innerHTML = `
 `;
 
 class AdForm extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this.$friend_list = this.shadowRoot.getElementById('user');
-        this.$name = this.shadowRoot.getElementById('name');
-        this.$name.textContent = "Реклама для Mail.ru";
-    }
-
+    this.$friend_list = this.shadowRoot.getElementById('user');
+    this.$name = this.shadowRoot.getElementById('name');
+    this.$name.textContent = 'Реклама для Mail.ru';
+  }
 }
 
 customElements.define('ad-form', AdForm);

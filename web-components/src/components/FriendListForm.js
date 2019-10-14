@@ -29,16 +29,14 @@ template.innerHTML = `
 `;
 
 class FriendListForm extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$field = this.shadowRoot.getElementById('friend_list');
-        this.user_form = this.shadowRoot.querySelector('user-form');
-        this.user_form = this.shadowRoot.querySelector('list-unit');
-    }
-
-
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$field = this.shadowRoot.getElementById('friend_list');
+    this.user_form = this.shadowRoot.querySelector('user-form');
+    this.user_form = this.shadowRoot.querySelector('list-unit');
+  }
 }
 
 customElements.define('friend-list', FriendListForm);

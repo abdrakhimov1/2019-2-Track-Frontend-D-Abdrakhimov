@@ -1,5 +1,3 @@
-import { PassThrough } from "stream";
-
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -45,70 +43,62 @@ template.innerHTML = `
 `;
 
 class MessageForm extends HTMLElement {
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
 
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-
-        this.$form = this._shadowRoot.querySelector('form');
-        this.$input = this._shadowRoot.querySelector('form-input');
-        this.$message_field = this._shadowRoot.querySelector('message-field');
-
+    this.$form = this.shadowRoot.querySelector('form');
+    this.$input = this.shadowRoot.querySelector('form-input');
+    this.$message_field = this.shadowRoot.querySelector('message-field');
 
 
-        this.$form.addEventListener('submit', this._onSubmit.bind(this));
-        this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
-        this.$check = 1;
+    this.$form.addEventListener('submit', this.onSubmit.bind(this));
+    this.$form.addEventListener('keypress', this.onKeyPress.bind(this));
+    this.$check = 1;
+  }
 
+
+  onSubmit(event) {
+    let user = 'me';
+    const currentdate = new Date();
+    event.preventDefault();
+
+    if (this.$input.value === '') {
+      return false;
     }
 
+    const text = this.$input.value;
+    const time = `${currentdate.getHours()}:${currentdate.getMinutes()}`;
 
-
-    _onSubmit(event) {
-        var currentdate = new Date();
-        event.preventDefault();
-
-        if (this.$input.value === "") {
-            return false;
-        }
-
-        var text = this.$input.value;
-        var time = currentdate.getHours() + ":" + currentdate.getMinutes();
-        //var user = "me";
-        if (this.$check > 0) {
-            var user = "me";
-        }
-        if (this.$check < 0) {
-            var user = "not_me";
-        }
-
-        this.$check = this.$check * -1;
-
-        let message_information = {
-            owner: user,
-            text: text,
-            time: time,
-        };
-
-        this.$message_field._createMessage(message_information);
-
-        this.$input._clear();
-
-
+    if (this.$check > 0) {
+      user = 'me';
+    }
+    if (this.$check < 0) {
+      user = 'not_me';
     }
 
-    _ButtonPushed(event) {}
+    this.$check = this.$check * -1;
 
-    _onKeyPress(event) {
-        if (event.keyCode == 13) {
-            this.$form.dispatchEvent(new Event('submit'));
-        }
+    const messageInformation = {
+      owner: user,
+      text,
+      time,
+    };
+
+    this.$message_field.createMessage(messageInformation);
+
+    this.$input.clear();
+
+    return 0;
+  }
+
+
+  onKeyPress(event) {
+    if (event.keyCode === 13) {
+      this.$form.dispatchEvent(new Event('submit'));
     }
-
-
-
-
+  }
 }
 
 

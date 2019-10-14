@@ -71,23 +71,21 @@ template.innerHTML = `
 `;
 
 class MyMessageForm extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$message_text = this.shadowRoot.getElementById('messagetext');
-        this.$message_name = this.shadowRoot.getElementById('name');
-        this.$message_time = this.shadowRoot.getElementById('time');
-    }
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$message_text = this.shadowRoot.getElementById('messagetext');
+    this.$message_name = this.shadowRoot.getElementById('name');
+    this.$message_time = this.shadowRoot.getElementById('time');
+  }
 
-    _setMessage(message_information) {
-
-        this.$message_text.textContent = message_information.text;
-        this.$message_time.textContent = message_information.time;
-        //FIXME Изменить Юзера
-        this.$message_name.textContent = 'Danny';
-
-    }
+  setMessage(messageInformation) {
+    this.$message_text.textContent = messageInformation.text;
+    this.$message_time.textContent = messageInformation.time;
+    // FIXME Изменить Юзера
+    this.$message_name.textContent = 'Danny';
+  }
 }
 
 customElements.define('new-my-message-form', MyMessageForm);

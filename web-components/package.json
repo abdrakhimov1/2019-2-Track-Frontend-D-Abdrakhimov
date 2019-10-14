@@ -1,9 +1,8 @@
 {
-    "name": "2019-2-Track-Frontend-D-Abdrakhimov",
-    "homepage": "https://abdrakhimov1.github.io/2019-2-Track-Frontend-D-Abdrakhimov/",
+
     "scripts": {
-        "test": "CI=true react-scripts test --env=jsdom",
-        "test:coverage": "npm test -- --coverage",
+        "lint": "eslint src/**/*.js src/*.js",
+        "test": "npm run lint",
         "start": "webpack-dev-server --mode=development --hot",
         "build": "webpack --mode=development"
     },

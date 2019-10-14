@@ -20,10 +20,10 @@ template.innerHTML = `
 
         #menu:before {
             position: absolute;
-            font-family: Font Awesome\ 5 Brands;
+            
             top: 20px;
             left: 0;
-            content: "\f17e";
+            content: "f17e";
             color:blue;
         }
 
@@ -53,18 +53,17 @@ template.innerHTML = `
 `;
 
 class UserForm extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$logout_button = this.shadowRoot.querySelector('logout-button');
-        this.$photo = this.getElementsByClassName('round')
-        this.$friend_list = this.shadowRoot.getElementById('user');
-        this.$menu = this.shadowRoot.getElementById('menu');
-        this.$name = this.shadowRoot.getElementById('name');
-        this.$name.textContent = "Messenger";
-    }
-
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$logout_button = this.shadowRoot.querySelector('logout-button');
+    this.$photo = this.getElementsByClassName('round');
+    this.$friend_list = this.shadowRoot.getElementById('user');
+    this.$menu = this.shadowRoot.getElementById('menu');
+    this.$name = this.shadowRoot.getElementById('name');
+    this.$name.textContent = 'Messenger';
+  }
 }
 
 customElements.define('user-form', UserForm);

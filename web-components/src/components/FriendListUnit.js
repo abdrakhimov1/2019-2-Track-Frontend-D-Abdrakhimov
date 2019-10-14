@@ -53,18 +53,16 @@ template.innerHTML = `
 `;
 
 class ListUnit extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$field = this.shadowRoot.getElementById('header');
-        this.$name = this.shadowRoot.getElementById('name');
-        this.$name.textContent = "Друг";
-        this.$last_seen = this.shadowRoot.getElementById('last_seen');
-        this.$last_seen.textContent = "Начало последнего сообщения";
-
-
-    }
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$field = this.shadowRoot.getElementById('header');
+    this.$name = this.shadowRoot.getElementById('name');
+    this.$name.textContent = 'Друг';
+    this.$last_seen = this.shadowRoot.getElementById('last_seen');
+    this.$last_seen.textContent = 'Начало последнего сообщения';
+  }
 }
 
 customElements.define('list-unit', ListUnit);

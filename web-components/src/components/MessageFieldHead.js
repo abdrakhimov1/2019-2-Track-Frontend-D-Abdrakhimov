@@ -64,18 +64,16 @@ template.innerHTML = `
 `;
 
 class MessageFieldHead extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$field = this.shadowRoot.getElementById('header');
-        this.$name = this.shadowRoot.getElementById('name');
-        this.$name.textContent = "John";
-        this.$last_seen = this.shadowRoot.getElementById('last_seen');
-        this.$last_seen.textContent = "Last seen: today at 10:53";
-
-
-    }
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$field = this.shadowRoot.getElementById('header');
+    this.$name = this.shadowRoot.getElementById('name');
+    this.$name.textContent = 'John';
+    this.$last_seen = this.shadowRoot.getElementById('last_seen');
+    this.$last_seen.textContent = 'Last seen: today at 10:53';
+  }
 }
 
 customElements.define('message-field-head', MessageFieldHead);

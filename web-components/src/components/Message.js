@@ -53,65 +53,62 @@ template.innerHTML = `
 `;
 
 class Message extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$box = this._shadowRoot.querySelector('.box');
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$box = this.shadowRoot.querySelector('.box');
 
-        this.$text = this.shadowRoot.querySelector('.text');
-        this.$time = this.shadowRoot.querySelector('.time');
-        this.$message = this.shadowRoot.querySelector('.message');
-        this.$message_owner = 'me';
-        this.$user = 'Danny';
-        //h1 = document.getElementsByTagName('h1')[0];
-        //h1.innerHTML = 'hello, ' + this.$text;
+    this.$text = this.shadowRoot.querySelector('.text');
+    this.$time = this.shadowRoot.querySelector('.time');
+    this.$message = this.shadowRoot.querySelector('.message');
+    this.$message_owner = 'me';
+    this.$user = 'Danny';
+    // h1 = document.getElementsByTagName('h1')[0];
+    // h1.innerHTML = 'hello, ' + this.$text;
 
-        //var message = document.getElementById('div');
-        //var m = document.createElement('m');
+    // var message = document.getElementById('div');
+    // var m = document.createElement('m');
 
 
-        //message.appendChild('lol');
+    // message.appendChild('lol');
+  }
 
+  addMessage() {
+    const line = document.createElement('message');
+    if (this.$message_owner === 'me') {
+      line.innerHTML = this.$user + this.$text + this.$time;
     }
-
-    _add_message() {
-        var line = document.createElement("message");
-        if (this.$message_owner === 'me') {
-            line.innerHTML = '<div id = "rectangle1" ><div id = "user">' + this.$user + '</div><div id ="text">' + this.$text + ' ' + '<div id ="date">' + this.$time + '</div></div>';
-        }
-        if (this.$message_owner === 'not_me') {
-            line.innerHTML = '<div id = "rectangle2" > ' + this.$text + this.$time;
-        }
-        this.$message.appendChild(line);
+    if (this.$message_owner === 'not_me') {
+      line.innerHTML = `<div id = "rectangle2" > ${this.$text}${this.$time}`;
     }
+    this.$message.appendChild(line);
+  }
 
-    getDate() {
-        return this.$time;
-    }
+  getDate() {
+    return this.$time;
+  }
 
-    getUser() {
-        return this.$user;
-    }
+  getUser() {
+    return this.$user;
+  }
 
-    getMessage() {
-        return this.$text;
-    }
+  getMessage() {
+    return this.$text;
+  }
 
-    JsonMaker(messageNumber) {
+  JsonMaker(messageNumber) {
+    const messageForLocalStorage = {
+      user: this.getUser(),
+      message: this.getMessage(),
+      date: this.getDate(),
+      number: messageNumber,
+    };
 
-        let messageForLocalStorage = {
-            user: this.getUser(),
-            message: this.getMessage(),
-            date: this.getDate(),
-            number: messageNumber,
-        };
+    const json = JSON.stringify(messageForLocalStorage);
 
-        let json = JSON.stringify(messageForLocalStorage);
-
-        return json;
-    }
-
+    return json;
+  }
 }
 
 customElements.define('mess-form', Message);

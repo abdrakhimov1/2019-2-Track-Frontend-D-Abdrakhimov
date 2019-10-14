@@ -24,29 +24,27 @@ template.innerHTML = `
 `;
 
 class MessageField extends HTMLElement {
-    constructor() {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$field = this.shadowRoot.getElementById('field');
-        this.$back = this.shadowRoot.getElementById('back');
+  constructor() {
+    super();
+    this.shadowRoot = this.attachShadow({ mode: 'open' });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.$field = this.shadowRoot.getElementById('field');
+    this.$back = this.shadowRoot.getElementById('back');
+  }
 
+  createMessage(messageInformation) {
+    if (messageInformation.owner === 'me') {
+      const message = document.createElement('new-my-message-form');
+      message.setMessage(messageInformation);
+      this.$field.appendChild(message);
     }
 
-    _createMessage(message_information) {
-
-        if (message_information.owner === "me") {
-            var message = document.createElement('new-my-message-form');
-            message._setMessage(message_information);
-            this.$field.appendChild(message);
-        }
-
-        if (message_information.owner === "not_me") {
-            var message = document.createElement('new-friend-message-form');
-            message._setMessage(message_information);
-            this.$field.appendChild(message);
-        }
+    if (messageInformation.owner === 'not_me') {
+      const message = document.createElement('new-friend-message-form');
+      message.setMessage(messageInformation);
+      this.$field.appendChild(message);
     }
+  }
 }
 
 customElements.define('message-field', MessageField);
