@@ -4,16 +4,31 @@ template.innerHTML = `
         input {
             border: 0;
             outline: none;
-            width :100%;
-            align-self: flex-start;
+            width :700px;
+            
+            height: 50px;
+            
+            font-size : 50px;
+            margin-left : 20px;
+            margin-right : 20px;
             
         }
-        :host {
-            display: inline-block;
-            border: 1px solid rgba(25, 25, 25, 0.32);
+
+
+        #full_form{
+            display : flex;
+            position: fixed;
+            bottom: 0;
+            background : white;
         }
     </style>
-    <input type="text">
+    <div id = "full_form">
+        <img src ="https://icon-icons.com/icons2/1863/PNG/48/photo-camera_118793.png"  height:50px;">
+        <input type="text">
+        <img src ="https://icon-icons.com/icons2/1863/PNG/48/sentiment-satisfied-alt_118686.png"  height:50px;" style = "margin-left : 20px;">
+        <img src ="https://icon-icons.com/icons2/1863/PNG/48/description_119232.png"  height:50px;" style = "margin-left : 20px;">
+        
+    </div>
 `;
 
 class FormInput extends HTMLElement {

@@ -7,7 +7,12 @@ template.innerHTML = `
         display : flex;
         flex-direction : column; 
         width: 900px;
+        height : 100%;
+        
         position: relative;
+        
+        margin-bottom : 30px;
+        margin-top : 130px;
         }
     
     </style>

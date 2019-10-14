@@ -5,20 +5,15 @@ template.innerHTML = `
     <style>
 
         form-input {
-            width: 100%;
-            height: 80px;
-            
-            bottom: 0;
+            width: 950px;
+            height: 30px;
+
+
         }
       
-        .form-input{
-            width : 100%;
-            
-        }
 
-        .message-field-head{
-          width : 400px;
-        }
+
+        
         
         input[type=submit] {
             visibility: collapse;
@@ -28,16 +23,23 @@ template.innerHTML = `
           width : 400px;
           border: 2px solid #CA2C92;
         }
+
+        #main_list{
+            height : 100%;
+            display: flex;
+            flex-direction : column;
+            align-items: center;
+        }
     </style>
     
-    
   
-    <form>    
-    
-        <message-field-head></message-field-head>
-        <message-field></message-field>
-        <form-input name="message-text" placeholder="Введите сообщеине"></form-input>
-           
+    <form>   
+    <message-field-head></message-field-head> 
+        <div id = "main_list">
+            
+            <message-field></message-field>
+            <form-input name="message-text" placeholder="Введите сообщеине"></form-input>
+        </div>
     </form>
     
 `;

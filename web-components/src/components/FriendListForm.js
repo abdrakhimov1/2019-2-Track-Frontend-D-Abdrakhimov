@@ -5,9 +5,11 @@ template.innerHTML = `
         #friend_list{
             background : green;
             height: 100%; 
-            width: 400px;
+            width: 100%;
             border: 2px solid black;
         }
+
+        
     
     </style>
 

@@ -9,7 +9,7 @@ template.innerHTML = `
         display: flex;
         flex-direction: column;
         margin: 5px 0;
-        
+        margin-bottom : 20px;
         }
 
     .mymessage span{
@@ -18,17 +18,18 @@ template.innerHTML = `
         border-radius: 5px;
         padding: 5px;
         word-break: break-word;
-        background: #DBB9CC;
+        background: #f1daf7;
+        font-size : 30px;
       }
 
     #name{
         
         display: inline-block;
-        color : #9C326E;
+        color : black;
         font-weight : bold;
-        font-size : medium;
+        font-size : 40px;
         margin: 0 5px;
-        
+        margin-bottom : 15px;
         
     }
 
@@ -37,7 +38,7 @@ template.innerHTML = `
         display: inline-block;
         color : #7A6470;
         font-style: italic;
-        font-size : x-small;
+        font-size : medium;
         margin: 0 5px;
         
         
@@ -47,7 +48,7 @@ template.innerHTML = `
         
         display : flex;
         flex-direction: row;
-        margin: 0 -5px;
+        
         
         
     }

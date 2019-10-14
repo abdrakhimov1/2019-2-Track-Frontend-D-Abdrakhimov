@@ -21,7 +21,7 @@ template.innerHTML = `
         }
 
         #user{
-            font-size:25px;
+            font-size:70px;
             color:black;
             face:Arial;
             font-style: bolt;

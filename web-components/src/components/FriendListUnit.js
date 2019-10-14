@@ -8,7 +8,7 @@ template.innerHTML = `
         background: #FFDAEE;
         border: 2px solid #CA2C92;
         line-height  : 80px;
-        width: 300px;
+        width: 100%;
         opacity: 0.6;
         
     }
