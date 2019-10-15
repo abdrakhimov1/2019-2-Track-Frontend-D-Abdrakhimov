@@ -31,7 +31,6 @@ class MessageField extends HTMLElement {
     this.$field = this.shadowRoot.getElementById('field');
     this.$back = this.shadowRoot.getElementById('back');
 
-
     if (!localStorage.messageNumber) {
       localStorage.setItem('messageNumber', 0);
     }
@@ -45,10 +44,9 @@ class MessageField extends HTMLElement {
           const text = workingJson.message_text;
           const time = workingJson.message_time;
           const messageInformation = {
-            owner: workingJson.user,
+            owner:workingJson.user,
             text,
-            time };
-
+            time};
           this.createMessage(messageInformation);
         }
 
