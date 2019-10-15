@@ -37,16 +37,16 @@ class MessageField extends HTMLElement {
 
     if (localStorage.messageNumber !== 0) {
       // eslint-disable-next-line no-plusplus
-      for (let i = 0; i < localStorage.messageNumber; i++) { 
+      for (let i = 0; i < localStorage.messageNumber; i++) {
         const workingJson = JSON.parse(localStorage[i]);
 
         if (workingJson.user === 'Danny') {
           const text = workingJson.message_text;
           const time = workingJson.message_time;
           const messageInformation = {
-            owner:workingJson.user,
+            owner : workingJson.user,
             text,
-            time};
+            time };
           this.createMessage(messageInformation);
         }
 
