@@ -54,7 +54,7 @@ class MessageField extends HTMLElement {
           const text = workingJson.message_text;
           const time = workingJson.message_time;
           const messageInformation = {
-            owner:workingJson.user,
+            owner: workingJson.user,
             text,
             time,
           };
