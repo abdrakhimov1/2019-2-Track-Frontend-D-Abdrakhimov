@@ -13,4 +13,4 @@ import './components/LogoutButton';
 import './components/UserForm';
 import './components/MessageFieldList';
 import './components/FriendListUnit';
-import './components/Ad';
+
