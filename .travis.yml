@@ -21,4 +21,4 @@ deploy:
     branch:
       - master
       - devel
-      - task_2_new
+      - task_3_and_4
