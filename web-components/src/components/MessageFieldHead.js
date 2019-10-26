@@ -48,17 +48,15 @@ template.innerHTML = `
     
     </style>
 
-    
-
     <div id ="header">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/arrow-back_119433.png" style ="color:white; height:50px; filter: invert(1);">
+        <img id = "back_button" src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/leftarrow_121320.png" style ="color:white; height:50px; filter: invert(1);">
         <img src="https://i01.fotocdn.net/s109/936c470840eecc0b/user_xl/2431641802.jpg" alt="" class="round">
         <div id = "name-column">
             <div id = "name"></div>
             <div id = "last_seen"></div>
         </div>
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/search_118692.png" style ="color:white; height:50px; filter: invert(1);">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/error-outline_119185.png" style ="color:white; height:50px; filter: invert(1);">
+        <img src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/search_121252.png" style ="color:white; height:50px; filter: invert(1);">
+        <img src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/info_121335.png" style ="color:white; height:50px; filter: invert(1);">
     </div>
     
 `;
@@ -73,6 +71,16 @@ class MessageFieldHead extends HTMLElement {
     this.$name.textContent = 'John';
     this.$last_seen = this.shadowRoot.getElementById('last_seen');
     this.$last_seen.textContent = 'Last seen: today at 10:53';
+    this.$back_button = this.shadowRoot.getElementById('back_button');
+    this.$back_button.onclick = this.Back;
+    this.$status = 0;
+  }
+
+  Back() {
+    const tempDiv = document.createElement('my-messanger');
+    document.getElementById('container').innerHTML = '';
+    document.getElementById('container').insertAdjacentElement('afterbegin', tempDiv);
+    return this.$status;
   }
 }
 

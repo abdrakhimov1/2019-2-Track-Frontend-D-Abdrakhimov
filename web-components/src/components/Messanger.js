@@ -20,11 +20,8 @@ template.innerHTML = `
     }
 
     </style>
-
-    <form id="messanger">
-        
         <friend-list></friend-list>
-        <div id='list-of-messages'>
+        <div id="list-of-messages">
           <list-unit></list-unit>
           <list-unit></list-unit>
           <list-unit></list-unit>
@@ -32,8 +29,7 @@ template.innerHTML = `
           <list-unit></list-unit>
         </div>
         <my-button></my-button>
-        
-    </form>
+ 
 
 `;
 
@@ -46,12 +42,13 @@ class Messanger extends HTMLElement {
     this.$listOfMessages = this.shadowRoot.getElementById('list-of-messages');
     this.$superButton = this.shadowRoot.querySelector('my-button');
     this.$superButton.onclick = this.AddChat;
+    this.$status = 0;
   }
   AddChat() {
     //  потом добавлю открытие меню для создания нового сообщения
-    this.$chat = document.createElement('list-unit');
-    this.$listOfMessages.appendChild(this.$chat);
-    return false;
+    const tempDiv = document.createElement('list-unit');
+    this.shadowRoot.getElementById('list-of-messages').insertAdjacentElement('beforeend', tempDiv);
+    return this.$status;
   }
 }
 customElements.define('my-messanger', Messanger);

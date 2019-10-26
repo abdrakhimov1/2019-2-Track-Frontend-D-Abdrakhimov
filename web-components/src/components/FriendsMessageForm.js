@@ -82,7 +82,7 @@ class FriendMessageForm extends HTMLElement {
     this.$message_text.textContent = messageInformation.text;
     this.$message_time.textContent = messageInformation.time;
     // FIXME Изменить Юзера
-    this.$message_name.textContent = 'Другой юзер';
+    this.$message_name.textContent = 'Other User';
   }
 }
 

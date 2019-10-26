@@ -66,6 +66,15 @@ class ListUnit extends HTMLElement {
     this.$name.textContent = 'Friend';
     this.$last_seen = this.shadowRoot.getElementById('last_seen');
     this.$last_seen.textContent = 'Начало последнего сообщения';
+    this.$field.onclick = this.Chat;
+    this.$status = 0;
+  }
+
+  Chat() {
+    const tempDiv = document.createElement('message-form');
+    document.getElementById('container').innerHTML = '';
+    document.getElementById('container').insertAdjacentElement('afterbegin', tempDiv);
+    return this.$status;
   }
 }
 

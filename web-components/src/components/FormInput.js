@@ -21,12 +21,18 @@ template.innerHTML = `
             bottom: 0;
             background : white;
         }
+        
+        #useful_icons{
+          margin-left : 20px;
+          height:50px;
+        }
+    
     </style>
     <div id = "full_form">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/photo-camera_118793.png"  height:50px;">
+        <img id=useful_icons src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/gallery_121253.png">
         <input type="text">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/sentiment-satisfied-alt_118686.png"  height:50px;" style = "margin-left : 20px;">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/description_119232.png"  height:50px;" style = "margin-left : 20px;">
+        <img id=useful_icons src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/heart_121311.png">
+        <img id=useful_icons src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/file_121247.png">
         
     </div>
 `;
