@@ -7,3 +7,7 @@ import './components/MessageField';
 import './components/MessageFieldHead';
 import './components/Messanger';
 import './components/MessageFieldList';
+import './components/FriendListUnit';
+import './components/FriendListForm';
+import './components/UserForm';
+import './components/Button';

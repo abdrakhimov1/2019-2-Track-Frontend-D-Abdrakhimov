@@ -21,12 +21,23 @@ template.innerHTML = `
             bottom: 0;
             background : white;
         }
+        
+        #useful_icons{
+          margin-left : 20px;
+          height:50px;
+          transition: 1s;
+        }
+  
+        #useful_icons:hover {
+          transform: scale(1.2);
+         }
+    
     </style>
     <div id = "full_form">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/photo-camera_118793.png"  height:50px;">
+        <img id=useful_icons src ="components/img/photo.png">
         <input type="text">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/sentiment-satisfied-alt_118686.png"  height:50px;" style = "margin-left : 20px;">
-        <img src ="https://icon-icons.com/icons2/1863/PNG/48/description_119232.png"  height:50px;" style = "margin-left : 20px;">
+        <img id=useful_icons src ="components/img/heart.png">
+        <img id=useful_icons src ="components/img/document.png">
         
     </div>
 `;

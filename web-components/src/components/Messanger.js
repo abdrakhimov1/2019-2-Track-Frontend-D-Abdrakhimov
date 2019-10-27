@@ -4,9 +4,7 @@ template.innerHTML = `
 
 
     #messanger {
-        display : flex;
-        flex-direction : row;
-        position: relative;
+
         }
     
     #friend-list{
@@ -15,17 +13,24 @@ template.innerHTML = `
     .message-form{
          
     }
-    
+
+    #list-of-messages{
+      display : flex;
+      flex-direction : column-reverse;
+    }
+
     </style>
+    <friend-list></friend-list>
+    <div id="super-list">
+      <list-unit></list-unit>
+      <list-unit></list-unit>
+      <list-unit></list-unit>
+      <list-unit></list-unit>
+      <list-unit></list-unit>
+    </div>
+    <my-button></my-button>
+ 
 
-    <form id="messanger">
-        
-        <message-form ></message-form>
-        
-    </form>
-    
-
-    
 `;
 
 class Messanger extends HTMLElement {
@@ -34,7 +39,15 @@ class Messanger extends HTMLElement {
     this.shadowRoot = this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.$message_field = this.shadowRoot.querySelector('message-form');
+    this.$superButton = this.shadowRoot.querySelector('my-button');
+    this.$superButton.onclick = this.AddChat;
+    this.$status = 0;
+  }
+  AddChat() {
+    //  потом добавлю открытие меню для создания нового сообщения
+    const tempDiv = document.createElement('list-unit');
+    this.shadowRoot.appendChild(tempDiv);
+    return this.$status;
   }
 }
-
 customElements.define('my-messanger', Messanger);

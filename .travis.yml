@@ -9,6 +9,7 @@ before_install:
   - cd web-components
 
 script:
+  - npm install copy-webpack-plugin --save-dev
   - npm test
   - npm run build
 
@@ -21,4 +22,4 @@ deploy:
     branch:
       - master
       - devel
-      - task_2_new
+      - task_3_and_4
