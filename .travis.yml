@@ -9,6 +9,7 @@ before_install:
   - cd web-components
 
 script:
+  - npm install copy-webpack-plugin --save-dev
   - npm test
   - npm run build
 
