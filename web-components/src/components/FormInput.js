@@ -25,14 +25,19 @@ template.innerHTML = `
         #useful_icons{
           margin-left : 20px;
           height:50px;
+          transition: 1s;
         }
+  
+        #useful_icons:hover {
+          transform: scale(1.2);
+         }
     
     </style>
     <div id = "full_form">
-        <img id=useful_icons src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/gallery_121253.png">
+        <img id=useful_icons src ="components/img/photo.png">
         <input type="text">
-        <img id=useful_icons src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/heart_121311.png">
-        <img id=useful_icons src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/file_121247.png">
+        <img id=useful_icons src ="components/img/heart.png">
+        <img id=useful_icons src ="components/img/document.png">
         
     </div>
 `;

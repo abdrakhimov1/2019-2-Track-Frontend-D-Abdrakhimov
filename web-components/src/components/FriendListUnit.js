@@ -47,7 +47,7 @@ template.innerHTML = `
     </style>
 
     <div id ="header">
-        <img src="https://i01.fotocdn.net/s109/936c470840eecc0b/user_xl/2431641802.jpg" alt="" class="round" height="50" width="50">
+        <img src="components/img/avatar.png" alt="" class="round" height="50" width="50">
         <div id = 'name_plus_message'>
             <div id = "name"></div>
             <div id = "last_seen"></div>

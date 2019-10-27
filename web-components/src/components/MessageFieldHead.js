@@ -45,18 +45,33 @@ template.innerHTML = `
         align-items: center;
     }
 
+    #icon{
+        transition: 1s;
+    }
+
+    #icon:hover {
+        transform: scale(1.2);
+       }
+
+    #back_button{
+        transition: 1s;
+    }
+
+    #back_button:hover {
+        transform: scale(1.2);
+       }
     
     </style>
 
     <div id ="header">
-        <img id = "back_button" src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/leftarrow_121320.png" style ="color:white; height:50px; filter: invert(1);">
-        <img src="https://i01.fotocdn.net/s109/936c470840eecc0b/user_xl/2431641802.jpg" alt="" class="round">
+        <img id = "back_button" src ="components/img/back.png" style ="color:white; height:50px; filter: invert(1);">
+        <img src="components/img/avatar.png" alt="" class="round">
         <div id = "name-column">
             <div id = "name"></div>
             <div id = "last_seen"></div>
         </div>
-        <img src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/search_121252.png" style ="color:white; height:50px; filter: invert(1);">
-        <img src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/info_121335.png" style ="color:white; height:50px; filter: invert(1);">
+        <img id = "icon" src ="components/img/search.png" style ="color:white; height:50px; filter: invert(1);">
+        <img id = "icon" src ="components/img/info.png" style ="color:white; height:50px; filter: invert(1);">
     </div>
     
 `;

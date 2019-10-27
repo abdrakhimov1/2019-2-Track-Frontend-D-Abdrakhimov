@@ -40,10 +40,10 @@ template.innerHTML = `
 
     </style>
     <form id="user">
-        <img src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/menu_121304.png" style ="color:white; height:90px; filter: invert(1);">
-        <img  src="https://i01.fotocdn.net/s109/936c470840eecc0b/user_xl/2431641802.jpg" alt="" class="round" height="90" width="90" >
+        <img src ="components/img/menu.png" style ="color:white; height:90px; filter: invert(1);">
+        <img  src="components/img/avatar.png" alt="" class="round" height="90" width="90" >
         <div id = "name"></div>
-        <img src ="https://cdn.icon-icons.com/icons2/1904/PNG/512/search_121252.png" style ="color:white; height:0px; filter: invert(1);">
+        <img src ="components/img/search.png" style ="color:white; height:50px; filter: invert(1);">
     </form>
     
 
