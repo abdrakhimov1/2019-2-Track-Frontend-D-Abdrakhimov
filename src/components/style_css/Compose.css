@@ -1,0 +1,82 @@
+.compose {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background: rgb(249, 243, 250);
+    border-top: 1px solid #eeeef1;
+    position: fixed;
+    width: calc(100% - 20px);
+    bottom: 0px;
+
+  }
+
+
+
+  
+  @supports (backdrop-filter: blur(20px)) {
+    .compose {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+    }
+  }
+  
+  .compose-input {
+    flex: 1;
+    border-radius: 20px;
+    border-style: groove;
+    font-size: 14px;
+    height: 40px;
+    width: 100%;
+    background: white;
+    outline:none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .compose-input:focus{
+    box-shadow: 0 0 0 2pt rgb(255, 195, 252);
+  }
+  
+  .compose-input::placeholder {
+    opacity: 0.9;
+  }
+  
+
+  .add{
+        height: 30px;
+        margin-right: 5px;
+        margin-left: 5px;
+        margin-top: 10px;
+        filter: invert(100);
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+  }
+
+  .add:hover{
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    }
+
+    #form{
+        width: 100%;
+    }
+
+  .ava{
+    margin-top: 10px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50px;
+  }
+
+  .friend-unit{
+    display: flex;
+    height: 80px;
+    background: #FBE4ED;
+    border: 1px solid black;
+  }
+
+  .friend-unit:hover {
+    opacity: 0.6;
+  }
