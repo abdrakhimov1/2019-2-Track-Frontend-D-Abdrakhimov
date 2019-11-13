@@ -1,14 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
-import logo from '../assets/logo.svg'
-import back from '../assets/back.png'
-import info from '../assets/info.png'
-import search from '../assets/search.png'
-import ava from '../assets/avatar.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
+import back from '../assets/back.png';
+import info from '../assets/info.png';
+import search from '../assets/search.png';
+import ava from '../assets/avatar.png';
+import PropTypes from 'prop-types';
 
-const year = new Date().getFullYear()
 
 const rotate360 = keyframes`
 	from {
@@ -17,7 +16,7 @@ const rotate360 = keyframes`
 	to {
 		transform: rotate(360deg);
 	}
-`
+`;
 
 const TopBar = styled.div`
 	background-color: #550445;
@@ -32,7 +31,7 @@ const TopBar = styled.div`
 		animation: ${rotate360} infinite 20s linear;
 		height: 80px;
 	}
-`
+`;
 
 const UserNameForm = styled.div`
 	font-size: large;
@@ -40,24 +39,24 @@ const UserNameForm = styled.div`
 	font-weight: bold;
 	margin-left: 5px;
 	text-align: left;
-`
+`;
 const LastSeenForm = styled.div`
 	font-weight: 200;
 	font-size: small;
 	margin-right: 5px;
 	text-align: left;
 	margin-left: 5px;
-`
+`;
 const UserDisplayForm = styled.div`
 	display: flex;
 	flex-direction: column;
-`
+`;
 
 function Header({UserName, lastSeen}) {
 	return (
 		<TopBar>
 			<Link to="/FriendList">
-			<img src={back} className="add" alt="add"/>
+				<img src={back} className="add" alt="add"/>
 			</Link>
 			<img src={ava} className="ava" alt="ava"/>
 			<UserDisplayForm>
@@ -67,7 +66,12 @@ function Header({UserName, lastSeen}) {
 			<img src={info} className="add" alt="add"/>
 			<img src={search} className="add" alt="add"/>
 		</TopBar>
-	)
+	);
 }
+
+Header.propTypes = {
+	UserName: PropTypes.string.isRequired,
+	lastSeen: PropTypes.string.isRequired,
+};
 
 export default Header;

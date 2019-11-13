@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import './style_css/Compose.css';
-import ava from '../assets/avatar.png'
+import ava from '../assets/avatar.png';
 
 const FriendForm = styled.div`
 
@@ -49,24 +50,33 @@ const LastMessage = styled.div`
 
 
 
-export default function Friend({name, id, lastSeen, lastMessage}) {
+function Friend({name, id, lastSeen, lastMessage}) {
 
-      
+	
 
-      return (
-        <Link to='/Chat' style={{ textDecoration: 'none', color: 'black' }}>
-        <div className="friend-unit" >
+	return (
+		<Link to='/Chat' style={{ textDecoration: 'none', color: 'black' }}>
+			<div className="friend-unit" >
 
-                <img src={ava} className="ava" alt="ava"/>
-          <FriendForm >
-            <FrienInfo>
-                <FriendName>{name}</FriendName>
-                <FriendLastSeen>{lastSeen}</FriendLastSeen>
-            </FrienInfo>
-            <LastMessage>{lastMessage}</LastMessage>
-          </FriendForm>
-        </div>
-        </Link>
+				<img src={ava} className="ava" alt="ava"/>
+				<FriendForm >
+					<FrienInfo>
+						<FriendName>{name}</FriendName>
+						<FriendLastSeen>{lastSeen}</FriendLastSeen>
+					</FrienInfo>
+					<LastMessage>{lastMessage}</LastMessage>
+				</FriendForm>
+			</div>
+		</Link>
 
-      )
-  }
+	);
+}
+
+Friend.propTypes = {
+	name: PropTypes.string.isRequired,
+	id: PropTypes.isRequired,
+	lastSeen: PropTypes.string.isRequired,
+	lastMessage: PropTypes.string.isRequired,
+};
+
+export default Friend;
