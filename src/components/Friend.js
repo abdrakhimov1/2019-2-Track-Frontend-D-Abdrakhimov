@@ -1,25 +1,35 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled';
 import './style_css/Compose.css';
 import ava from '../assets/avatar.png'
 
 const FriendForm = styled.div`
+
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+    text-decoration: none;
 `;
 
 const FrienInfo = styled.div`
     display: flex;
     justify-content: space-between;
+    text-decoration: none;
 `;
 
 const FriendName = styled.div`
+    text-decoration: none;
     font-size: large;
     margin-right: 15px;
     font-weight: bold;
     margin-left: 5px;
     text-align: left;
+    text-decoration: none;
+
+    &:focus, &:hover, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
 `;
 const FriendLastSeen = styled.div`
   font-weight: 200;
@@ -39,12 +49,14 @@ const LastMessage = styled.div`
 
 
 
-
 export default function Friend({name, id, lastSeen, lastMessage}) {
 
-      return (
+      
 
-        <div className="friend-unit">
+      return (
+        <Link to='/Chat' style={{ textDecoration: 'none', color: 'black' }}>
+        <div className="friend-unit" >
+
                 <img src={ava} className="ava" alt="ava"/>
           <FriendForm >
             <FrienInfo>
@@ -54,5 +66,7 @@ export default function Friend({name, id, lastSeen, lastMessage}) {
             <LastMessage>{lastMessage}</LastMessage>
           </FriendForm>
         </div>
+        </Link>
+
       )
   }

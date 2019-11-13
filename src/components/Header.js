@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 import logo from '../assets/logo.svg'
@@ -55,7 +56,9 @@ const UserDisplayForm = styled.div`
 function Header({UserName, lastSeen}) {
 	return (
 		<TopBar>
+			<Link to="/FriendList">
 			<img src={back} className="add" alt="add"/>
+			</Link>
 			<img src={ava} className="ava" alt="ava"/>
 			<UserDisplayForm>
 				<UserNameForm>UserName</UserNameForm>

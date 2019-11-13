@@ -75,8 +75,14 @@
     height: 80px;
     background: #FBE4ED;
     border: 1px solid black;
+    text-decoration: none;
   }
 
   .friend-unit:hover {
     opacity: 0.6;
+    text-decoration: none;
+  }
+
+  .friend-unit:link{
+    text-decoration: none;
   }
