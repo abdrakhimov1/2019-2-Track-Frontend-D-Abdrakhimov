@@ -17,4 +17,4 @@ deploy:
     branch:
       - master
       - devel
-      - task_5
+      - task_5_new

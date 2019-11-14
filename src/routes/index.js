@@ -1,17 +1,16 @@
-import React from 'react';
-import { Router, Route, Switch} from 'react-router-dom';
-import { createBrowserHistory } from 'history';
-import Chat from '../components/Chat';
-import FriendList from '../components/FriendList';
+import React from 'react'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import Chat from '../components/Chat'
+import FriendList from '../components/FriendList'
 
-export const history = createBrowserHistory();
+export const history = createBrowserHistory()
 
 export default function Routes() {
-
-	return (
-		<Router history={history}>
-			<div>
-				{/* <nav>
+  return (
+    <Router history={history}>
+      <div>
+        {/* <nav>
 					<ul>
 						<li>
 							<Link to="/Chat">Chat</Link>
@@ -21,16 +20,15 @@ export default function Routes() {
 						</li>
 					</ul>
 				</nav> */}
-				<Switch>
-					<Route path='/Chat'>
-						<Chat />
-					</Route>
-					<Route path='/FriendList'>
-						<FriendList />
-					</Route>
-				</Switch>
-			</div>
-		</Router>
-	);
+        <Switch>
+          <Route path="/Chat">
+            <Chat />
+          </Route>
+          <Route path="/">
+            <FriendList />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  )
 }
-
