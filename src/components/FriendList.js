@@ -5,6 +5,7 @@ import Friend from './Friend';
 import menu from '../assets/menu.png';
 import search from '../assets/search.png';
 import newChatIcon from '../assets/newChat.png';
+import UserIcon from '../assets/user.png';
 
 const FriendListFull = styled.div`
   display: flex;
@@ -52,6 +53,9 @@ export default function FriendList() {
 		<FriendListFull>
 			<FriendListHeader>
 				<img src={menu} className="add" alt="add" />
+				<Link to="/UserProfile">
+					<img src={UserIcon} className="add" alt="add" />
+				</Link>
 				<TitleText>Messanger</TitleText>
 				<img src={search} className="add" alt="add" />
 				<Link onClick={addChat}>
