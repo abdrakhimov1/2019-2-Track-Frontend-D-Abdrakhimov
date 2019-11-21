@@ -3,6 +3,7 @@ import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Chat from '../components/Chat';
 import FriendList from '../components/FriendList';
+import UserProfile from '../components/UserProfile';
 
 export const history = createBrowserHistory();
 
@@ -24,9 +25,13 @@ export default function Routes() {
 					<Route path="/Chat">
 						<Chat />
 					</Route>
+					<Route path="/UserProfile">
+						<UserProfile />
+					</Route>
 					<Route path="/">
 						<FriendList />
 					</Route>
+					
 				</Switch>
 			</div>
 		</Router>
