@@ -28,6 +28,9 @@ export default function Routes() {
 					<Route path="/UserProfile">
 						<UserProfile />
 					</Route>
+					<Route path="/FriendList">
+						<FriendList />
+					</Route>
 					<Route path="/">
 						<FriendList />
 					</Route>
