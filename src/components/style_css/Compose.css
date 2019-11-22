@@ -132,3 +132,9 @@
   color: black;
   font-size: x-large;
 }
+
+.button_style {
+  background: transparent;
+  border: none;
+  height: 90%;
+}
