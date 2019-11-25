@@ -22,7 +22,7 @@ export default function Routes() {
 					</ul>
 				</nav> */}
 				<Switch>
-					<Route path="/Chat/:chat_id?">
+					<Route path="/Chat/:chatId?">
 						<Chat />
 					</Route>
 					<Route path="/UserProfile">

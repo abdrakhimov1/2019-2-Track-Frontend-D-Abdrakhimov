@@ -1,4 +1,5 @@
-import React, { useState, useParams } from 'react';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import MessageList from './MessageList';
 import './style_css/Compose.css';
@@ -20,41 +21,20 @@ const ComposeForm = styled.div`
 
 export default function Chat() {
 	const [messageText, setMessageText] = useState('');
-	let { chat_id } = useParams();
-	const instantChatId = 1;//props.match.params.chat_id;
-	var messageList = [];
+	const { chatId } = useParams();
+	const instantChatId = chatId;
+	let messageList = [];
 
-	if(localStorage.getItem('chat' + instantChatId)) {
-		messageList = JSON.parse(localStorage.getItem('chat' + instantChatId));
-	};
+	if(localStorage.getItem(`chat${instantChatId}`)) {
+		messageList = JSON.parse(localStorage.getItem(`chat${instantChatId}`));
+	}
 
 	const [messages, setMessages] = useState(
 		messageList,
 	);
 
-	function getMessages(){
-
-		// if (localStorage.getItem('chat'+ instantChatId) !== null){
-		// 	// for (let i = 0; i < localStorage.getItem('chat' + instantChatId).length; i++) {
-		// 	// 	alert(i);
-		// 	// }
-		// 	setMessages(
-		// 		localStorage.getItem('chat' + instantChatId),
-		// 	);
-		// };
-	};
-
-	const chat_tmp = localStorage.getItem('chat' + instantChatId);
-
-	
-	// useEffect(() => {
-	// 	setMessages(
-	// 		localStorage.getItem('chat' + instantChatId),
-	// 	);
-	// });
-
-
 	const addMessage = (event) => {
+		
 		if (event.key === 'Enter') {
 			if (messageText !== '') {
 				setMessages([
@@ -65,22 +45,22 @@ export default function Chat() {
 						messageTime: 'date and time',
 						wasRead: 'true',
 						text: messageText,
-						chatId: 2,
+						chatId: instantChatId,
 					},
 				]);
-				localStorage.setItem('chat' + instantChatId, JSON.stringify(messages));
-				setMessageText('');
-			}
-			
-			
-		}
-		
-	};
 
+				setMessageText('');
+			};
+			
+
+		}
+
+	};
+	localStorage.setItem(`chat${instantChatId}`, JSON.stringify(messages));
 	return (
 		<div>
 			<div className="container">
-				<Header UserName={"User " + instantChatId}/>
+				<Header UserName={`User ${instantChatId}`}/>
 				
 				<MessageList messages={messages} />
 			</div>
@@ -96,6 +76,7 @@ export default function Chat() {
 					value={messageText}
 					onChange={(event) => setMessageText(event.target.value)}
 					onKeyPress={addMessage}
+					onMouseEnter={addMessage}
 				/>
 				<img src={pic} className="add" alt="add" />
 				<img src={heart} className="add" alt="add" />
