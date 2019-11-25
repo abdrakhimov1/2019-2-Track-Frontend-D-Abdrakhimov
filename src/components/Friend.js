@@ -50,12 +50,12 @@ const LastMessage = styled.div`
 
 
 
-function Friend({name, id, lastSeen, lastMessage}) {
+function Friend({name, chat_id, lastSeen, lastMessage}) {
 
 	
 
 	return (
-		<Link to='/Chat' style={{ textDecoration: 'none', color: 'black' }}>
+		<Link to={'/Chat/' + chat_id} style={{ textDecoration: 'none', color: 'black' }}>
 			<div className="friend-unit" >
 
 				<img src={ava} className="ava" alt="ava"/>

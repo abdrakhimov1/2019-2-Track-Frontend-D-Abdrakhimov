@@ -59,7 +59,7 @@ function Header({ UserName, lastSeen }) {
 			</Link>
 			<img src={ava} className="ava" alt="ava" />
 			<UserDisplayForm>
-				<UserNameForm>UserName</UserNameForm>
+      <UserNameForm>{UserName}</UserNameForm>
 				<LastSeenForm>last:seen</LastSeenForm>
 			</UserDisplayForm>
 			<img src={info} className="add" alt="add" />

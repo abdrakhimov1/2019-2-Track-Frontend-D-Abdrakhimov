@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useParams } from 'react';
 import styled from '@emotion/styled';
 import MessageList from './MessageList';
 import './style_css/Compose.css';
@@ -16,14 +16,43 @@ const ComposeForm = styled.div`
   background: #8b3d78;
 `;
 
+ 
+
 export default function Chat() {
 	const [messageText, setMessageText] = useState('');
+	let { chat_id } = useParams();
+	const instantChatId = 1;//props.match.params.chat_id;
+	var messageList = [];
 
-	const [messages, setMessages] = useState([
-		{ id: 1, text: 'Message Text1', UserName: 'User name', messageTime: 'date and time', wasRead: 'true' },
-		{ id: 2, text: 'Message Text2', UserName: 'User name', messageTime: 'date and time', wasRead: 'true' },
-		{ id: 3, text: 'Message Text3', UserName: 'User name', messageTime: 'date and time', wasRead: 'true' },
-	]);
+	if(localStorage.getItem('chat' + instantChatId)) {
+		messageList = JSON.parse(localStorage.getItem('chat' + instantChatId));
+	};
+
+	const [messages, setMessages] = useState(
+		messageList,
+	);
+
+	function getMessages(){
+
+		// if (localStorage.getItem('chat'+ instantChatId) !== null){
+		// 	// for (let i = 0; i < localStorage.getItem('chat' + instantChatId).length; i++) {
+		// 	// 	alert(i);
+		// 	// }
+		// 	setMessages(
+		// 		localStorage.getItem('chat' + instantChatId),
+		// 	);
+		// };
+	};
+
+	const chat_tmp = localStorage.getItem('chat' + instantChatId);
+
+	
+	// useEffect(() => {
+	// 	setMessages(
+	// 		localStorage.getItem('chat' + instantChatId),
+	// 	);
+	// });
+
 
 	const addMessage = (event) => {
 		if (event.key === 'Enter') {
@@ -36,17 +65,23 @@ export default function Chat() {
 						messageTime: 'date and time',
 						wasRead: 'true',
 						text: messageText,
+						chatId: 2,
 					},
 				]);
+				localStorage.setItem('chat' + instantChatId, JSON.stringify(messages));
 				setMessageText('');
 			}
+			
+			
 		}
+		
 	};
 
 	return (
 		<div>
 			<div className="container">
-				<Header />
+				<Header UserName={"User " + instantChatId}/>
+				
 				<MessageList messages={messages} />
 			</div>
 
