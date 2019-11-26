@@ -32,9 +32,9 @@ const TitleText = styled.div`
 
 export default function FriendList() {
 	const [users, setUsers] = useState([
-		{ id: 1, name: 'user1', lastSeen: 'date and time', lastMessage: 'Hi, Im user 1' },
-		{ id: 1, name: 'user2', lastSeen: 'date and time', lastMessage: 'Hi, Im user 2' },
-		{ id: 1, name: 'user3', lastSeen: 'date and time', lastMessage: 'Hi, Im user 3' },
+		{ id: 1, name: 'user1', lastSeen: 'date and time', lastMessage: 'Hi, Im user 1', chatId: 1 },
+		{ id: 2, name: 'user2', lastSeen: 'date and time', lastMessage: 'Hi, Im user 2', chatId: 2 },
+		{ id: 3, name: 'user3', lastSeen: 'date and time', lastMessage: 'Hi, Im user 3', chatId: 3 },
 	]);
 
 	const addChat = (event) => {
@@ -42,9 +42,10 @@ export default function FriendList() {
 			...users,
 			{
 				id: Date.now(),
-				UserName: 'New User',
+				name: `user${  users.length + 1}`,
 				lastSeen: 'date and time',
 				lastMessage: 'Hi, Im new user',
+				chatId: users.length + 1,
 			},
 		]);
 	};
