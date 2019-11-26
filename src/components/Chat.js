@@ -7,7 +7,6 @@ import Header from './Header';
 import add from '../assets/document.png';
 import pic from '../assets/photo.png';
 import heart from '../assets/heart.png';
-import locationImg from '../assets/maps-and-flags.png';
 
 const ComposeForm = styled.div`
   display: flex;
@@ -56,27 +55,8 @@ export default function Chat() {
 
 		}
 
-
-	const makeGeolocationMessage = () => {
-		navigator.geolocation.getCurrentPosition((position) => {
-			const linkText = `https://www.openstreetmap.org/#map=18/${  position.coords.latitude  }/${  position.coords.longitude}`;
-			setMessages([
-				...messages,
-				{
-					id: Date.now(),
-					UserName: 'Me',
-					messageTime: 'date and time',
-					wasRead: 'true',
-					text:  
-						<a>
-							<a href = {linkText} >Im here! Press to explore</a>
-							<img src={locationImg} className="add" alt="add" />
-						</a>,
-				},
-			]);
-		});
 	};
-
+	localStorage.setItem(`chat${instantChatId}`, JSON.stringify(messages));
 	return (
 		<div>
 			<div className="container">
@@ -100,7 +80,6 @@ export default function Chat() {
 				/>
 				<img src={pic} className="add" alt="add" />
 				<img src={heart} className="add" alt="add" />
-				<button className = "button_style" type="button" onClick={makeGeolocationMessage}><img src={locationImg} className="add" alt="add" /></button>
 			</ComposeForm>
 		</div>
 	);
