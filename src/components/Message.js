@@ -14,6 +14,7 @@ const MyMessageForm = styled.div`
     float: right;
     margin-left: 30px;
     margin-right: 10px;
+    animation: fade-in 1s ease;
 `;
 
 const MessageForm = styled.div`
@@ -27,6 +28,7 @@ const MessageForm = styled.div`
     float: left;
     margin-right: 30px;
     margin-left: 10px;
+    animation: fade-in .8s ease;
 `;
 
 const UserNameForm = styled.div`
