@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import MessageList from './MessageList';
@@ -17,9 +17,10 @@ const ComposeForm = styled.div`
   background: #8b3d78;
 `;
 
- 
+
 
 export default function Chat() {
+
 	const [messageText, setMessageText] = useState('');
 	const { chatId } = useParams();
 	const instantChatId = chatId;

@@ -58,7 +58,6 @@ const MessageTime = styled.div`
 `;
 
 export default function Message({UserName, id, text, messageTime}) {
-
 	if (UserName === 'Me'){
 		return (
 			<div>

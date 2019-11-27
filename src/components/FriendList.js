@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Friend from './Friend';
@@ -31,11 +31,35 @@ const TitleText = styled.div`
 `;
 
 export default function FriendList() {
-	const [users, setUsers] = useState([
-		{ id: 1, name: 'user1', lastSeen: 'date and time', lastMessage: 'Hi, Im user 1', chatId: 1 },
-		{ id: 2, name: 'user2', lastSeen: 'date and time', lastMessage: 'Hi, Im user 2', chatId: 2 },
-		{ id: 3, name: 'user3', lastSeen: 'date and time', lastMessage: 'Hi, Im user 3', chatId: 3 },
-	]);
+
+	const ChatList = [];
+
+	for ( let i=0; i <  localStorage.length; i+=1) {
+		if (localStorage.getItem(`chat${i + 1}`)) {
+			ChatList.push(
+				{
+					id: Date.now(),
+					name: `user${i + 1}`,
+					lastSeen: 'date and time',
+					lastMessage: 'No messages yet',
+					chatId: i + 1,
+				}
+			);
+		}
+	};
+
+	const [users, setUsers] = useState(
+		ChatList,
+	);
+
+	for ( let i=0; i < users.length; i+=1) {
+		if (localStorage.getItem(`chat${i + 1}`)) {
+			const tmpArray = JSON.parse(localStorage.getItem(`chat${i + 1}`));
+			users[i].lastMessage = tmpArray[tmpArray.length - 1 ].text;
+			
+		}
+	};
+
 
 	const addChat = (event) => {
 		setUsers([
@@ -44,7 +68,7 @@ export default function FriendList() {
 				id: Date.now(),
 				name: `user${  users.length + 1}`,
 				lastSeen: 'date and time',
-				lastMessage: 'Hi, Im new user',
+				lastMessage: 'No messages yet',
 				chatId: users.length + 1,
 			},
 		]);
