@@ -16,6 +16,15 @@
   }
 }
 
+@keyframes fade-in {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
 .compose-input {
   flex: 1;
   border-radius: 20px;
@@ -43,15 +52,11 @@
   margin-left: 5px;
   margin-top: 10px;
   filter: invert(100);
-  -moz-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .add:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 #form {
@@ -77,15 +82,11 @@
   position	: absolute;
   height: 40px;
   filter: invert(100);
-  -moz-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .photoPicCover:hover {
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -o-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .friend-unit {

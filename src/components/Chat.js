@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import MessageList from './MessageList';
 import './style_css/Compose.css';
@@ -16,16 +17,25 @@ const ComposeForm = styled.div`
   background: #8b3d78;
 `;
 
-export default function Chat() {
-	const [messageText, setMessageText] = useState('');
 
-	const [messages, setMessages] = useState([
-		{ id: 1, text: 'Message Text1', UserName: 'User name', messageTime: 'date and time', wasRead: 'true' },
-		{ id: 2, text: 'Message Text2', UserName: 'User name', messageTime: 'date and time', wasRead: 'true' },
-		{ id: 3, text: 'Message Text3', UserName: 'User name', messageTime: 'date and time', wasRead: 'true' },
-	]);
+
+export default function Chat() {
+
+	const [messageText, setMessageText] = useState('');
+	const { chatId } = useParams();
+	const instantChatId = chatId;
+	let messageList = [];
+
+	if(localStorage.getItem(`chat${instantChatId}`)) {
+		messageList = JSON.parse(localStorage.getItem(`chat${instantChatId}`));
+	}
+
+	const [messages, setMessages] = useState(
+		messageList,
+	);
 
 	const addMessage = (event) => {
+		
 		if (event.key === 'Enter') {
 			if (messageText !== '') {
 				setMessages([
@@ -36,17 +46,23 @@ export default function Chat() {
 						messageTime: 'date and time',
 						wasRead: 'true',
 						text: messageText,
+						chatId: instantChatId,
 					},
 				]);
-				setMessageText('');
-			}
-		}
-	};
 
+				setMessageText('');
+			};
+			
+
+		}
+
+	};
+	localStorage.setItem(`chat${instantChatId}`, JSON.stringify(messages));
 	return (
 		<div>
 			<div className="container">
-				<Header />
+				<Header UserName={`User ${instantChatId}`}/>
+				
 				<MessageList messages={messages} />
 			</div>
 
@@ -61,6 +77,7 @@ export default function Chat() {
 					value={messageText}
 					onChange={(event) => setMessageText(event.target.value)}
 					onKeyPress={addMessage}
+					onMouseEnter={addMessage}
 				/>
 				<img src={pic} className="add" alt="add" />
 				<img src={heart} className="add" alt="add" />

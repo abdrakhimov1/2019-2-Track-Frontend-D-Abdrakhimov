@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch} from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import Chat from '../components/Chat';
 import FriendList from '../components/FriendList';
@@ -22,11 +22,14 @@ export default function Routes() {
 					</ul>
 				</nav> */}
 				<Switch>
-					<Route path="/Chat">
+					<Route path="/Chat/:chatId?">
 						<Chat />
 					</Route>
 					<Route path="/UserProfile">
 						<UserProfile />
+					</Route>
+					<Route path="/FriendList">
+						<FriendList />
 					</Route>
 					<Route path="/">
 						<FriendList />

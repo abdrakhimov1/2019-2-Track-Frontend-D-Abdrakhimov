@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import Friend from './Friend';
 import menu from '../assets/menu.png';
 import search from '../assets/search.png';
 import newChatIcon from '../assets/newChat.png';
+import UserIcon from '../assets/user.png';
 
 const FriendListFull = styled.div`
   display: flex;
@@ -30,20 +31,45 @@ const TitleText = styled.div`
 `;
 
 export default function FriendList() {
-	const [users, setUsers] = useState([
-		{ id: 1, name: 'user1', lastSeen: 'date and time', lastMessage: 'Hi, Im user 1' },
-		{ id: 1, name: 'user2', lastSeen: 'date and time', lastMessage: 'Hi, Im user 2' },
-		{ id: 1, name: 'user3', lastSeen: 'date and time', lastMessage: 'Hi, Im user 3' },
-	]);
+
+	const ChatList = [];
+
+	for ( let i=0; i <  localStorage.length; i+=1) {
+		if (localStorage.getItem(`chat${i + 1}`)) {
+			ChatList.push(
+				{
+					id: Date.now(),
+					name: `user${i + 1}`,
+					lastSeen: 'date and time',
+					lastMessage: 'No messages yet',
+					chatId: i + 1,
+				}
+			);
+		}
+	};
+
+	const [users, setUsers] = useState(
+		ChatList,
+	);
+
+	for ( let i=0; i < users.length; i+=1) {
+		if (localStorage.getItem(`chat${i + 1}`)) {
+			const tmpArray = JSON.parse(localStorage.getItem(`chat${i + 1}`));
+			users[i].lastMessage = tmpArray[tmpArray.length - 1 ].text;
+			
+		}
+	};
+
 
 	const addChat = (event) => {
 		setUsers([
 			...users,
 			{
 				id: Date.now(),
-				UserName: 'New User',
+				name: `user${  users.length + 1}`,
 				lastSeen: 'date and time',
-				lastMessage: 'Hi, Im new user',
+				lastMessage: 'No messages yet',
+				chatId: users.length + 1,
 			},
 		]);
 	};
@@ -52,6 +78,9 @@ export default function FriendList() {
 		<FriendListFull>
 			<FriendListHeader>
 				<img src={menu} className="add" alt="add" />
+				<Link to="/UserProfile">
+					<img src={UserIcon} className="add" alt="add" />
+				</Link>
 				<TitleText>Messanger</TitleText>
 				<img src={search} className="add" alt="add" />
 				<Link onClick={addChat}>
