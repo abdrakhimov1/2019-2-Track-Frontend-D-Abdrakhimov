@@ -55,9 +55,7 @@ export default function Chat() {
 							messageTime: 'date and time',
 							wasRead: 'true',
 							text:  
-									<a>
-										<img src={imgToMessage} className='img_in_message'/>
-									</a>,
+								<img src={imgToMessage} className='img_in_message'/>,
 						},
 					]);
 						
