@@ -133,3 +133,21 @@
   color: black;
   font-size: x-large;
 }
+
+.button_style {
+  background: transparent;
+  border: none;
+  height: 90%;
+}
+
+.drop_container {
+  width: calc(95%);
+  height: 10%;
+  visibility: none;
+  position: absolute;
+}
+
+.img_in_message {
+  width: 300px;
+  
+}

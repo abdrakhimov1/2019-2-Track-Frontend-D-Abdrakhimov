@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from '@emotion/styled';
 import MessageList from './MessageList';
@@ -7,6 +7,8 @@ import Header from './Header';
 import add from '../assets/document.png';
 import pic from '../assets/photo.png';
 import heart from '../assets/heart.png';
+import locationImg from '../assets/maps-and-flags .png';
+
 
 const ComposeForm = styled.div`
   display: flex;
@@ -17,9 +19,79 @@ const ComposeForm = styled.div`
   background: #8b3d78;
 `;
 
-
+const DropBackground = styled.div`
+	width: 80%;
+	height: 80%;
+	margin: 10%;
+	border-style: dashed 5px;
+	position: absolute;
+	colour: black;
+	z-index: 10;
+	visability: hidden;
+`;
 
 export default function Chat() {
+
+	useEffect(() => {
+		const onFile = event => {
+			event.stopPropagation();
+			event.preventDefault();
+		};
+
+		const sendFile = event => {
+			event.stopPropagation();
+			event.preventDefault();
+			
+			const file = event.dataTransfer.files[0];
+			if (file.type.indexOf('image') == 0 && file.size < 300000) {
+				const reader = new FileReader();
+				reader.onload = function(event2) {
+					const imgToMessage = event2.target.result;
+					setMessages([
+						...messages,
+						{
+							id: Date.now(),
+							UserName: 'Me',
+							messageTime: 'date and time',
+							wasRead: 'true',
+							text:  
+									<a>
+										<img src={imgToMessage} className='img_in_message'/>
+									</a>,
+						},
+					]);
+						
+					const data = new FormData();
+					data.append('file', imgToMessage);
+					data.append('user', 'Danny');
+
+					fetch('https://tt-front.now.sh/upload', {
+						method: 'POST',
+						body: data,
+					});
+					
+				};
+				reader.readAsDataURL(file);
+			} else {
+				alert('Неправильный формат файла');
+			}
+			
+
+			
+		};
+	
+		document.addEventListener('dragenter', onFile, false);
+		document.addEventListener('dragleave', onFile, false);
+		document.addEventListener('dragover', onFile, false);
+		document.addEventListener('drop', sendFile, false);
+	
+		return () => {
+			document.removeEventListener('dragenter', onFile);
+			document.removeEventListener('dragleave', onFile);
+			document.removeEventListener('dragover', onFile);
+			document.removeEventListener('drop', sendFile);
+		};
+	}, [messages]);
 
 	const [messageText, setMessageText] = useState('');
 	const { chatId } = useParams();
@@ -57,15 +129,65 @@ export default function Chat() {
 		}
 
 	};
-	localStorage.setItem(`chat${instantChatId}`, JSON.stringify(messages));
+
+	const makeGeolocationMessage = () => {
+		navigator.geolocation.getCurrentPosition((position) => {
+			const linkText = `https://www.openstreetmap.org/#map=18/${  position.coords.latitude  }/${  position.coords.longitude}`;
+			setMessages([
+				...messages,
+				{
+					id: Date.now(),
+					UserName: 'Me',
+					messageTime: 'date and time',
+					wasRead: 'true',
+					text:  
+						<a>
+							<a href = {linkText} >Im here! Press to explore</a>
+							<img src={locationImg} className="add" alt="add" />
+						</a>,
+				},
+			]);
+		});
+	};
+
+
+
+
+	// const dropbox = document.getElementById('dropbox');
+
+	// const preventAndStop = (event) => {
+	// event.stopPropagation();
+	// event.preventDefault();
+	// };
+
+	// const drop = (event) => {
+	// preventAndStop(event);
+	// const files = event.dataTransfer.files;
+	// handleFiles(files);
+	// };
+
+	// dropbox.addEventListener('dragenter', preventAndStop, false);
+	// dropbox.addEventListener('dragover', preventAndStop, false);
+	// dropbox.addEventListener('drop', drop, false);
+
+	// localStorage.setItem(`chat${instantChatId}`, JSON.stringify(messages));
 	return (
+	
+			
+		
 		<div>
-			<div className="container">
+			
+			<div  className="container">
 				<Header UserName={`User ${instantChatId}`}/>
 				
-				<MessageList messages={messages} />
+				<div>
+					
+					<MessageList messages={messages} />
+					
+				</div>
+				
 			</div>
-
+			
 			<ComposeForm>
 				<img src={add} className="add" alt="add" />
 				<input
@@ -81,7 +203,10 @@ export default function Chat() {
 				/>
 				<img src={pic} className="add" alt="add" />
 				<img src={heart} className="add" alt="add" />
+				<button className = "button_style" type="button" onClick={makeGeolocationMessage}><img src={locationImg} className="add" alt="add" /></button>
 			</ComposeForm>
+			
 		</div>
+
 	);
 }
