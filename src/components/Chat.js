@@ -19,16 +19,16 @@ const ComposeForm = styled.div`
   background: #8b3d78;
 `;
 
-const DropBackground = styled.div`
-	width: 80%;
-	height: 80%;
-	margin: 10%;
-	border-style: dashed 5px;
-	position: absolute;
-	colour: black;
-	z-index: 10;
-	visability: hidden;
-`;
+// const DropBackground = styled.div`
+// width: 80%;
+// height: 80%;
+// margin: 10%;
+// border-style: dashed 5px;
+// position: absolute;
+// colour: black;
+// z-index: 10;
+// visability: hidden;
+// `;
 
 export default function Chat() {
 
@@ -43,7 +43,7 @@ export default function Chat() {
 			event.preventDefault();
 			
 			const file = event.dataTransfer.files[0];
-			if (file.type.indexOf('image') == 0 && file.size < 300000) {
+			if (file.type.indexOf('image') === 0 && file.size < 300000) {
 				const reader = new FileReader();
 				reader.onload = function(event2) {
 					const imgToMessage = event2.target.result;
@@ -55,7 +55,7 @@ export default function Chat() {
 							messageTime: 'date and time',
 							wasRead: 'true',
 							text:  
-								<img src={imgToMessage} className='img_in_message'/>,
+								<img src={imgToMessage} className='img_in_message' alt="img in message"/>,
 						},
 					]);
 						
@@ -89,7 +89,7 @@ export default function Chat() {
 			document.removeEventListener('dragover', onFile);
 			document.removeEventListener('drop', sendFile);
 		};
-	}, [messages]);
+	});
 
 	const [messageText, setMessageText] = useState('');
 	const { chatId } = useParams();
@@ -139,10 +139,10 @@ export default function Chat() {
 					messageTime: 'date and time',
 					wasRead: 'true',
 					text:  
-						<a>
+						<div>
 							<a href = {linkText} >Im here! Press to explore</a>
 							<img src={locationImg} className="add" alt="add" />
-						</a>,
+						</div>,
 				},
 			]);
 		});
