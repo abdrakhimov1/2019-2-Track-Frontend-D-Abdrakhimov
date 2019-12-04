@@ -8,6 +8,7 @@ import add from '../assets/document.png';
 import pic from '../assets/photo.png';
 import heart from '../assets/heart.png';
 import locationImg from '../assets/maps-and-flags .png';
+import microphoneImg from '../assets/microphone.png';
 
 
 const ComposeForm = styled.div`
@@ -77,6 +78,36 @@ export default function Chat() {
 
 			
 		};
+
+		// async function getMedia() {
+
+		// let stream = null;
+		// try{
+		// const constrains = { audio: true, video : true};
+		// stream = await navigator.mediaDevices.getUserMedia(constrains);
+		// }catch(err) {
+
+		// }
+		// }
+
+		// const mediaRecorder = new mediaRecorder(stream);
+
+		// mediaRecorder.start();
+		// mediaRecorder.stop();
+
+		// const chunks = [];
+
+		// mediaRecorder.addEventListener('stop', (event) => {
+		// const audio = document.createElement('audio');
+		// const blob = new Blob(chunks, {type: mediaRecorder.mimeType});
+		// chunks = [];
+		// const audioURL = URL.createObjectURL(blob);
+		// audio.src = audioURL;
+		// });
+
+		// mediaRecorder.addEventListener('dataavailable', (event) => {
+		// chunks.push(event.data);
+		// });
 	
 		document.addEventListener('dragenter', onFile, false);
 		document.addEventListener('dragleave', onFile, false);
@@ -188,6 +219,7 @@ export default function Chat() {
 			
 			<ComposeForm>
 				<img src={add} className="add" alt="add" />
+				<img src={microphoneImg} className="add" alt="microphone" />
 				<input
 					type="text"
 					id="main-input"
