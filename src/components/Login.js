@@ -104,6 +104,8 @@ const loginWithVk = () => {
 			redirect: 'manual'
 		}
 	);
+
+	alert(response);
 };
 
 export default function Login() {
