@@ -4,6 +4,7 @@ import { createBrowserHistory } from 'history';
 import Chat from '../components/Chat';
 import FriendList from '../components/FriendList';
 import UserProfile from '../components/UserProfile';
+import Login from '../components/Login';
 
 export const history = createBrowserHistory();
 
@@ -22,6 +23,9 @@ export default function Routes() {
 					</ul>
 				</nav> */}
 				<Switch>
+					<Route path="/login">
+						<Login />
+					</Route>
 					<Route path="/Chat/:chatId?">
 						<Chat />
 					</Route>

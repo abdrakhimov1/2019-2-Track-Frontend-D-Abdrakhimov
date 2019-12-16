@@ -146,6 +146,7 @@ export default function Chat() {
 						UserName: 'Me',
 						messageTime: 'date and time',
 						wasRead: 'true',
+						geoType: false,
 						text: messageText,
 						chatId: instantChatId,
 					},
@@ -169,11 +170,8 @@ export default function Chat() {
 					UserName: 'Me',
 					messageTime: 'date and time',
 					wasRead: 'true',
-					text:  
-						<div>
-							<a href = {linkText} >Im here! Press to explore</a>
-							<img src={locationImg} className="add" alt="add" />
-						</div>,
+					geoType: true,
+					text: linkText,
 				},
 			]);
 		});
@@ -208,7 +206,6 @@ export default function Chat() {
 			
 			<div  className="container">
 				<Header UserName={`User ${instantChatId}`}/>
-				
 				<div>
 					
 					<MessageList messages={messages} />
