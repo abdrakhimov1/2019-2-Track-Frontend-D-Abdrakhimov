@@ -180,3 +180,11 @@
   width: 300px;
   
 }
+
+.loginherf{
+  width: 80%;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}

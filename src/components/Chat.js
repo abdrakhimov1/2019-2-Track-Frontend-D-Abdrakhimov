@@ -55,8 +55,9 @@ export default function Chat() {
 							UserName: 'Me',
 							messageTime: 'date and time',
 							wasRead: 'true',
-							text:  
-								<img src={imgToMessage} className='img_in_message' alt="img in message"/>,
+							imgType: true,
+							geoType: false,
+							text: imgToMessage,
 						},
 					]);
 						
@@ -147,6 +148,7 @@ export default function Chat() {
 						messageTime: 'date and time',
 						wasRead: 'true',
 						geoType: false,
+						imgType: false,
 						text: messageText,
 						chatId: instantChatId,
 					},
@@ -171,6 +173,7 @@ export default function Chat() {
 					messageTime: 'date and time',
 					wasRead: 'true',
 					geoType: true,
+					imgType: false,
 					text: linkText,
 				},
 			]);
