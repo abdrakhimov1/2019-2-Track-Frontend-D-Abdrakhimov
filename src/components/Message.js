@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import './style_css/Compose.css';
+import locationImg from '../assets/maps-and-flags .png';
 // import add from '../assets/add.png'
 // import pic from '../assets/pic.png'
 // import smile from '../assets/smile.png'
@@ -59,8 +60,43 @@ const MessageTime = styled.div`
   margin-right: 5px;
 `;
 
-export default function Message({UserName, id, text, messageTime}) {
+export default function Message({UserName, id, text, messageTime, geoType, imgType}) {
 	if (UserName === 'Me'){
+		if(geoType === true){
+			return (
+				<div>
+					<MyMessageForm>
+						<MessageInfoForm>
+							<UserNameForm>{UserName}</UserNameForm>
+							<MessageTime>{messageTime}</MessageTime>
+						</MessageInfoForm>
+						<MessageText>
+							<div>
+								<a href = {text} >Im here! Press to explore</a>
+								<img src={locationImg} className="add" alt="add" />
+							</div>
+						</MessageText>
+					</MyMessageForm>
+				</div>
+			);
+		}
+		if(imgType === true){
+			return (
+				<div>
+					<MyMessageForm>
+						<MessageInfoForm>
+							<UserNameForm>{UserName}</UserNameForm>
+							<MessageTime>{messageTime}</MessageTime>
+						</MessageInfoForm>
+						<MessageText>
+							<div>
+								<img src={text} className='img_in_message' alt="img in message"/>
+							</div>
+						</MessageText>
+					</MyMessageForm>
+				</div>
+			);
+		}
 		return (
 			<div>
 				<MyMessageForm>
@@ -72,8 +108,44 @@ export default function Message({UserName, id, text, messageTime}) {
 				</MyMessageForm>
 			</div>
 		);
+        
 	}
 	if (UserName !== 'Me'){
+		if(geoType === true){
+			return (
+				<div>
+					<MessageForm>
+						<MessageInfoForm>
+							<UserNameForm>{UserName}</UserNameForm>
+							<MessageTime>{messageTime}</MessageTime>
+						</MessageInfoForm>
+						<MessageText>
+							<div>
+								<a href = {text} >Im here! Press to explore</a>
+								<img src={locationImg} className="add" alt="add" />
+							</div>
+						</MessageText>
+					</MessageForm>
+				</div>
+			);
+		}
+		if(imgType === true){
+			return (
+				<div>
+					<MessageForm>
+						<MessageInfoForm>
+							<UserNameForm>{UserName}</UserNameForm>
+							<MessageTime>{messageTime}</MessageTime>
+						</MessageInfoForm>
+						<MessageText>
+							<div>
+								<img src={text} className='img_in_message' alt="img in message"/>
+							</div>
+						</MessageText>
+					</MessageForm>
+				</div>
+			);
+		}
 		return (
 			<div>
 				<MessageForm>
@@ -85,5 +157,6 @@ export default function Message({UserName, id, text, messageTime}) {
 				</MessageForm>
 			</div>
 		);
+        
 	}
 }
