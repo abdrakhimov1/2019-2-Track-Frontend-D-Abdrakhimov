@@ -28,15 +28,14 @@ const Text = styled.div`
     color: black;
 `;
 
-
-
-function CityListHeader() {
+function CityListHeader(text) {
+    console.log(text)
 	return (
 		<TopBar>
 			<Link to="/">
 				<img src={back} className="icons" alt="icons" />
 			</Link>
-            <Text>Manage cities</Text>
+                <Text>{text.HeaderText}</Text>
 			<img src={info} className="icons" alt="icons" />
 		</TopBar>
 	);
