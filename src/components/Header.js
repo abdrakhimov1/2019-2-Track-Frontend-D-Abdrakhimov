@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { keyframes } from '@emotion/core';
-import back from '../assets/back.png';
+// import back from '../assets/back.png';
 import info from '../assets/info.png';
 import search from '../assets/search.png';
 import ava from '../assets/avatar.png';
