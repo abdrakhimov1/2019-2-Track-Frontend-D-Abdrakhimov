@@ -54,9 +54,9 @@ const UserDisplayForm = styled.div`
 function Header({ UserName, lastSeen }) {
 	return (
 		<TopBar>
-			<Link to="/FriendList">
+			{/* <Link to="/FriendList">
 				<img src={back} className="add" alt="add" />
-			</Link>
+			</Link> */}
 			<img src={ava} className="ava" alt="ava" />
 			<UserDisplayForm>
 				<UserNameForm>{UserName}</UserNameForm>
