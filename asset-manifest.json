@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/2019-2-Track-Frontend-D-Abdrakhimov/static/css/main.74618ad9.chunk.css",
+    "main.js": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/main.28314dc6.chunk.js",
+    "main.js.map": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/main.28314dc6.chunk.js.map",
+    "runtime-main.js": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/runtime-main.40606b41.js",
+    "runtime-main.js.map": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/runtime-main.40606b41.js.map",
+    "static/css/2.787725ca.chunk.css": "/2019-2-Track-Frontend-D-Abdrakhimov/static/css/2.787725ca.chunk.css",
+    "static/js/2.fbda59c0.chunk.js": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/2.fbda59c0.chunk.js",
+    "static/js/2.fbda59c0.chunk.js.map": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/2.fbda59c0.chunk.js.map",
+    "index.html": "/2019-2-Track-Frontend-D-Abdrakhimov/index.html",
+    "precache-manifest.72950daf1ff05208fa8527bfefc651b5.js": "/2019-2-Track-Frontend-D-Abdrakhimov/precache-manifest.72950daf1ff05208fa8527bfefc651b5.js",
+    "service-worker.js": "/2019-2-Track-Frontend-D-Abdrakhimov/service-worker.js",
+    "static/css/2.787725ca.chunk.css.map": "/2019-2-Track-Frontend-D-Abdrakhimov/static/css/2.787725ca.chunk.css.map",
+    "static/css/main.74618ad9.chunk.css.map": "/2019-2-Track-Frontend-D-Abdrakhimov/static/css/main.74618ad9.chunk.css.map",
+    "static/js/2.fbda59c0.chunk.js.LICENSE.txt": "/2019-2-Track-Frontend-D-Abdrakhimov/static/js/2.fbda59c0.chunk.js.LICENSE.txt",
+    "static/media/avatar.png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/avatar.7d54a70b.png",
+    "static/media/info.png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/info.4176c78a.png",
+    "static/media/maps-and-flags .png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/maps-and-flags .f482e657.png",
+    "static/media/microphone.png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/microphone.ee8d1937.png",
+    "static/media/newChat.png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/newChat.da064253.png",
+    "static/media/ok-mark.png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/ok-mark.332a7201.png",
+    "static/media/user.png": "/2019-2-Track-Frontend-D-Abdrakhimov/static/media/user.774ade2d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.40606b41.js",
+    "static/css/2.787725ca.chunk.css",
+    "static/js/2.fbda59c0.chunk.js",
+    "static/css/main.74618ad9.chunk.css",
+    "static/js/main.28314dc6.chunk.js"
+  ]
+}
