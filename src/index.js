@@ -5,6 +5,7 @@ import store from './store';
 import Routes from './routes';
 import './styles/globalStyles.css';
 import * as serviceWorker from './utils/serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 render(
 	<Provider store={store}>
